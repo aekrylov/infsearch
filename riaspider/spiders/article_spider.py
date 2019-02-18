@@ -1,13 +1,18 @@
 import scrapy
+from scrapy_splash import SplashRequest
 
 
 class RiaSpider(scrapy.Spider):
-    name = 'ria_spider'
+    name = 'article_spider'
     start_urls = ["https://ria.ru/20190218/1550997539.html"]  # TODO
+
+    def start_requests(self):
+        for url in self.start_urls:
+            yield SplashRequest(url, self.parse, args={'wait': 0.5, 'images_enabled': False})
 
     def parse(self, response):
         title = response.xpath('//meta[@property="og:title"]/@content').get()
-        text = '\n'.join(response.css('.endless__item.m-active .article__text ::text').getall())
+        text = '\n'.join(response.css('.article__text ::text').getall())
         keywords = response.xpath('//meta[@name="keywords"]/@content').get()
 
         yield {
