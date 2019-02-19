@@ -6,7 +6,7 @@
 # See: https://doc.scrapy.org/en/latest/topics/item-pipeline.html
 import uuid
 
-from riaspider.models import PEWEE_DB, init_db, Article
+from models import init_db, Article
 
 
 class RiaspiderPipeline(object):
@@ -16,8 +16,7 @@ class RiaspiderPipeline(object):
 
 class PostgresPipeline(object):
     def __init__(self, dbname, host='localhost', port='5432', user='postgres', password='postgres'):
-        PEWEE_DB.init(dbname, host=host, port=port, user=user, password=password)
-        self.student_id = init_db()
+        self.student_id = init_db(dbname=dbname, host=host, port=port, user=user, password=password)
 
     @classmethod
     def from_crawler(cls, crawler):
