@@ -16,9 +16,11 @@ class Student(Model):
 
 class Article(Model):
     id = UUIDField(primary_key=True)
+    url = CharField(unique=True)
     title = CharField()
     text = TextField()
     keywords = CharField()
+    author = CharField(null=True)
 
     student = ForeignKeyField(Student, to_field='id', db_column='student_id')
 

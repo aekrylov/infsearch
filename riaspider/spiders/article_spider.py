@@ -18,7 +18,9 @@ class RiaSpider(scrapy.Spider):
         yield {
             'title': title,
             'text': text,
-            'keywords': keywords
+            'keywords': keywords,
+            'url': response.request.url,
+            'author': response.css('.article__author-name ::text').get()
         }
 
         for next_page in response.css('a.recommend__item-title'):
