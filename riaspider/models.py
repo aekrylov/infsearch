@@ -33,7 +33,7 @@ def init_db():
     Student.create_table()
     Article.create_table()
 
-    id = uuid.uuid4()
+    id = 'a3a623a44b874c55942d47b6c98e6a4c'
     me = Student(id=id, name='Антон', surname='Крылов', group_name='11-501')
     me.save(force_insert=True)
 
