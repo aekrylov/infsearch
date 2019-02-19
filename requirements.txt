@@ -1,2 +1,4 @@
 scrapy
 scrapy_splash
+peewee
+uuid
