@@ -1,4 +1,5 @@
-from peewee import PostgresqlDatabase, UUIDField, Model, CharField, TextField, ForeignKeyField, CompositeKey
+from peewee import PostgresqlDatabase, UUIDField, Model, CharField, TextField, ForeignKeyField, CompositeKey, \
+    IntegerField
 
 PEWEE_DB = PostgresqlDatabase(None)
 
@@ -41,6 +42,7 @@ class Stem(Model):
 class StemArticle(Model):
     stem = ForeignKeyField(Stem, on_delete='cascade', backref='articles')
     article = ForeignKeyField(Article, on_delete='cascade', backref='stems')
+    count = IntegerField()
 
     class Meta:
         primary_key = CompositeKey('stem', 'article')
