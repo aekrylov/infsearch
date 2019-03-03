@@ -14,3 +14,10 @@ Crawls ria.ru with scrapy
 
 1. Crawl data
 2. run [stemmer.py](./stemming/stemmer.py)
+
+### Inverted index search
+
+1. Run stemmer on some data
+2. Run [search.py](./inverted_index/search.py)
+3. Enter search query 
+4. A list of article titles will be returned sorted by total term count

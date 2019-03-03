@@ -24,5 +24,6 @@ def find(query):
 
 if __name__ == '__main__':
     init_db()
-    for article in find('Украина'):
+    query = input('Enter search query: ').strip()
+    for article in find(query):
         print('%3d; %s' % (article.rank, article.title))
