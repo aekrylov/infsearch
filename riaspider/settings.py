@@ -102,4 +102,4 @@ POSTGRES_DB = {
     'password': 'postgres'
 }
 
-POSTGRES_DB_NAME = 'infsearch'
+POSTGRES_DB_NAME = 'postgres'
